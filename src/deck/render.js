@@ -199,27 +199,22 @@ function renderCompare(slide) {
   `;
 }
 
-function renderSteps(slide) {
+function renderClosing(slide) {
   return `
     ${renderHeader(slide)}
-    <div class="step-row">
-      ${slide.steps
-        .map(
-          ([name, text], index) => `
-            <article class="step-row__item${index === slide.activeStep ? " step-row__item--active" : " step-row__item--muted"}">
-              <h3>${name}</h3>
-              <p>${text}</p>
-            </article>
-          `,
-        )
-        .join("")}
+    <div class="closing-frame">
+      <h3 class="closing-frame__title">${slide.statement}</h3>
+      <div class="closing-frame__points">
+        ${slide.points.map((item) => `<p class="closing-frame__point">${item}</p>`).join("")}
+      </div>
     </div>
-    ${renderSummary(slide.summary)}
+    ${renderSummary(slide.summary, true)}
   `;
 }
 
 function renderSlidePage(slide) {
   const contentByType = {
+    closing: renderClosing,
     compare: renderCompare,
     context: renderContext,
     cover: renderCover,
@@ -227,7 +222,6 @@ function renderSlidePage(slide) {
     ranking: renderRanking,
     relationship: renderRelationship,
     stages: renderStages,
-    steps: renderSteps,
     thesis: renderThesis,
   };
 

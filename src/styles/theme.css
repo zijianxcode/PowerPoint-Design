@@ -7,10 +7,10 @@
   --bg: #090909;
   --panel: #111111;
   --panel-soft: #161616;
-  --line: rgba(255, 255, 255, 0.11);
-  --line-soft: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-soft: rgba(255, 255, 255, 0.045);
   --accent: #f2a04d;
-  --accent-soft: rgba(242, 160, 77, 0.12);
+  --accent-soft: rgba(242, 160, 77, 0.08);
   --text-main: #f3eee6;
   --text-muted: rgba(243, 238, 230, 0.66);
   --summary-bottom: 68px;
@@ -33,9 +33,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background:
-    radial-gradient(circle at 18% 18%, rgba(242, 160, 77, 0.08), transparent 24%),
-    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.04), transparent 18%),
-    linear-gradient(180deg, #090909 0%, #101010 100%);
+    radial-gradient(circle at 18% 18%, rgba(242, 160, 77, 0.05), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.025), transparent 18%),
+    linear-gradient(180deg, #080808 0%, #0d0d0d 100%);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -72,11 +72,11 @@ p {
   height: var(--stage-height);
   padding: 80px 96px 88px;
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 20px;
   border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0)),
-    linear-gradient(180deg, rgba(17, 17, 17, 0.98), rgba(14, 14, 14, 0.99));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, rgba(16, 16, 16, 0.99), rgba(13, 13, 13, 1));
   color: var(--text-main);
 }
 
@@ -86,8 +86,8 @@ p {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 16% 20%, rgba(242, 160, 77, 0.055), transparent 26%),
-    radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.03), transparent 16%);
+    radial-gradient(circle at 16% 20%, rgba(242, 160, 77, 0.035), transparent 26%),
+    radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.02), transparent 16%);
 }
 
 .slide-page > * {
@@ -125,8 +125,8 @@ p {
   max-width: 980px;
   font-size: 60px;
   font-weight: 650;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: -0.034em;
 }
 
 .slide-page__title-accent {
@@ -149,8 +149,8 @@ p {
 
 .slide-page__subtitle {
   max-width: 760px;
-  font-size: 28px;
-  line-height: 1.52;
+  font-size: 27px;
+  line-height: 1.6;
   letter-spacing: -0.01em;
 }
 
@@ -195,8 +195,8 @@ p {
 .relationship-map__card,
 .thesis-shift__panel {
   border: 1px solid var(--line);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.018);
 }
 
 .question-visual {
@@ -235,17 +235,16 @@ p {
   padding: 26px 28px;
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.025);
-  opacity: 0.24;
+  opacity: 0.2;
 }
 
 .question-list__item--active {
   border-width: 2px;
   border-color: rgba(242, 160, 77, 0.88);
-  background: linear-gradient(180deg, rgba(242, 160, 77, 0.1), rgba(255, 255, 255, 0.03));
-  box-shadow: 0 0 0 1px rgba(242, 160, 77, 0.14), 0 0 26px rgba(242, 160, 77, 0.12);
+  background: linear-gradient(180deg, rgba(242, 160, 77, 0.08), rgba(255, 255, 255, 0.02));
   opacity: 1;
   min-height: 148px;
-  transform: translateX(-10px);
+  transform: translateX(-6px);
 }
 
 .question-list__index {
@@ -350,7 +349,7 @@ p {
   padding-top: 18px;
   border-top: 1px solid var(--line-soft);
   font-size: 22px;
-  line-height: 1.6;
+  line-height: 1.64;
   letter-spacing: -0.01em;
 }
 
@@ -379,6 +378,7 @@ p {
 .slide-page--stages,
 .slide-page--questions,
 .slide-page--compare,
+.slide-page--closing,
 .slide-page--steps {
   padding-bottom: 154px;
 }
@@ -390,6 +390,7 @@ p {
 .slide-page--stages .slide-page__title,
 .slide-page--questions .slide-page__title,
 .slide-page--compare .slide-page__title,
+.slide-page--closing .slide-page__title,
 .slide-page--steps .slide-page__title {
   max-width: 980px;
   font-size: 72px;
@@ -459,7 +460,7 @@ p {
 .thesis-shift__points p {
   color: var(--text-muted);
   font-size: 20px;
-  line-height: 1.58;
+  line-height: 1.62;
   letter-spacing: -0.005em;
 }
 
@@ -481,7 +482,7 @@ p {
 .thesis-shift__panel--active {
   border-width: 2px;
   border-color: rgba(242, 160, 77, 0.82);
-  background: linear-gradient(180deg, rgba(242, 160, 77, 0.08), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(242, 160, 77, 0.06), rgba(255, 255, 255, 0.018));
 }
 
 .thesis-shift__title {
@@ -497,12 +498,12 @@ p {
 
 .thesis-shift__bridge {
   padding: 26px 24px;
-  border: 2px dashed rgba(242, 160, 77, 0.7);
-  border-radius: 24px;
-  background: rgba(71, 44, 28, 0.32);
+  border: 1px dashed rgba(242, 160, 77, 0.58);
+  border-radius: 18px;
+  background: rgba(71, 44, 28, 0.22);
   color: var(--text-main);
   font-size: 24px;
-  line-height: 1.48;
+  line-height: 1.56;
   letter-spacing: -0.015em;
 }
 
@@ -537,7 +538,7 @@ p {
   padding: 16px 28px;
   border-radius: 999px;
   border: 1px solid rgba(242, 160, 77, 0.55);
-  background: rgba(242, 160, 77, 0.1);
+  background: rgba(242, 160, 77, 0.07);
   color: var(--accent);
   font-size: 24px;
   font-weight: 700;
@@ -568,7 +569,7 @@ p {
 .ranking-list__item--active {
   border-width: 2px;
   border-color: rgba(242, 160, 77, 0.82);
-  background: linear-gradient(180deg, rgba(242, 160, 77, 0.08), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(242, 160, 77, 0.06), rgba(255, 255, 255, 0.018));
 }
 
 .ranking-list__rank {
@@ -627,7 +628,44 @@ p {
 
 .compare-grid__column--accent {
   border-color: rgba(242, 160, 77, 0.52);
-  background: linear-gradient(180deg, rgba(242, 160, 77, 0.06), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(242, 160, 77, 0.045), rgba(255, 255, 255, 0.018));
+}
+
+.slide-page--closing .slide-page__header {
+  margin-bottom: 48px;
+}
+
+.closing-frame {
+  display: grid;
+  gap: 28px;
+  max-width: 1160px;
+  margin-top: 42px;
+  padding: 38px 42px 40px;
+  border-radius: 18px;
+  border: 1px solid rgba(242, 160, 77, 0.36);
+  background: linear-gradient(180deg, rgba(242, 160, 77, 0.04), rgba(255, 255, 255, 0.014));
+}
+
+.closing-frame__title {
+  max-width: 1040px;
+  font-size: 42px;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+}
+
+.closing-frame__points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.closing-frame__point {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
 }
 
 .compare-grid__items p {

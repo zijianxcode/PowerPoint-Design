@@ -16,7 +16,15 @@ A content-first PPT-style project for turning long interviews into clean, presen
 - 让每一页的版式服务它实际表达的内容关系
 - 在统一视觉语言下，保留清楚的层级、节奏和阅读路径
 
-当前 `v1.0.0` 包含一套基于设计行业访谈整理出的 `9` 页演示稿。
+当前 `v1.0.1` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿。
+
+### 版本 1.0.1
+
+本次更新包含：
+- 将访谈整理稿重构为更清晰的行业洞察主线
+- 重新打磨文字，减少泛化的 AI 总结腔
+- 强化结尾收束页，让核心判断更完整
+- 补充 [CHANGELOG.md](./CHANGELOG.md) 记录版本变更
 
 ### 版本 1.0.0
 
@@ -48,7 +56,7 @@ A content-first PPT-style project for turning long interviews into clean, presen
 - `stages`：阶段型工作流页
 - `questions`：判断清单页
 - `compare`：对照页
-- `steps`：行动路径页
+- `closing`：结论收束页
 
 这些页型不是为了“看起来丰富”，而是为了让不同内容关系有不同的承载方式。
 
@@ -115,7 +123,7 @@ npm run build
 - 如何让版式对应内容关系
 - 如何在统一视觉下避免每页都长得一样
 
-这也是 `PowerPoint Design v1.0.0` 的核心设计目标。
+这也是 `PowerPoint Design` 当前版本持续优化的核心设计目标。
 
 ## English
 
@@ -128,7 +136,15 @@ It is a content-first deck system designed to:
 - match each page layout to the actual information relationship it needs to express
 - keep a consistent visual language without flattening every page into the same structure
 
-The current `v1.0.0` package includes a `9`-slide presentation distilled from a design-industry interview.
+The current `v1.0.1` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview.
+
+### Version 1.0.1
+
+This update includes:
+- a rewritten industry-insight narrative instead of a transcript-style summary
+- more deliberate slide copy with less generic AI-generated phrasing
+- a clearer closing slide for the final takeaway
+- a documented release history in [CHANGELOG.md](./CHANGELOG.md)
 
 ### Version 1.0.0
 
@@ -160,7 +176,7 @@ That is why the project uses multiple slide archetypes:
 - `stages`: phased workflow page
 - `questions`: evaluation checklist page
 - `compare`: contrast page
-- `steps`: action-path page
+- `closing`: final takeaway page
 
 These page types are not there to make the deck feel visually busy. They exist because different kinds of meaning need different kinds of structure.
 
@@ -227,4 +243,4 @@ This project focuses on the harder and more useful problem:
 - how to match layout to meaning
 - how to maintain consistency without making every slide feel the same
 
-That is the main design goal of `PowerPoint Design v1.0.0`.
+That remains the main design goal of the current `PowerPoint Design` release.

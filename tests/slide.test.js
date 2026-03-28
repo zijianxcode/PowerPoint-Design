@@ -22,34 +22,34 @@ describe("renderSlideDeck", () => {
     );
 
     expect(titles).toEqual([
-      "AI 没削弱设计，重排了设计师价值",
-      "先看这份判断来自谁",
-      "价值正在从出稿转向判断与验证",
-      "角色边界正在融合",
-      "能力优先级重新排序",
-      "工作流正在被AI改写",
-      "招聘时重点看四个判断",
-      "学生常见短板与亮点",
-      "学生最该先做的是大量用AI",
+      "AI 时代，设计师的价值正在前移",
+      "最先改变的，是方案生产的成本",
+      "更稀缺的，变成判断与验证",
+      "设计开始进入更前端的决策环节",
+      "AI 优先改写的是探索环节",
+      "能力排序也在随之变化",
+      "企业最终仍通过判断力识别设计师",
+      "学生问题，更像供给侧的滞后",
+      "这一轮变化，核心在价值位置的变化",
     ]);
   });
 
-  it("exposes the page types needed for the interview deck", () => {
+  it("exposes the page types needed for the industry insight deck", () => {
     expect(deckSlides).toHaveLength(9);
     expect(deckSlides.map((slide) => slide.type)).toEqual([
       "cover",
       "context",
       "thesis",
       "relationship",
-      "ranking",
       "stages",
+      "ranking",
       "questions",
       "compare",
-      "steps",
+      "closing",
     ]);
   });
 
-  it("renders the context slide as a source anchor with stats", () => {
+  it("renders the context slide as the explanation for why the shift is happening now", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -57,10 +57,10 @@ describe("renderSlideDeck", () => {
     const stats = contextSlide?.querySelectorAll(".context-grid__stat");
 
     expect(stats).toHaveLength(3);
-    expect(contextSlide?.querySelector(".context-grid__statement")?.textContent).toContain("设计管理者");
+    expect(contextSlide?.querySelector(".context-grid__statement")?.textContent).toContain("执行层");
   });
 
-  it("renders the thesis slide as a transition from old to new value", () => {
+  it("renders the thesis slide as a transition from execution to judgment", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -68,12 +68,12 @@ describe("renderSlideDeck", () => {
     const shiftLabels = thesisSlide?.querySelectorAll(".thesis-shift__label");
 
     expect(shiftLabels).toHaveLength(2);
-    expect(shiftLabels?.[0]?.textContent).toContain("过去更看重");
-    expect(shiftLabels?.[1]?.textContent).toContain("现在更看重");
-    expect(thesisSlide?.querySelector(".thesis-shift__bridge")?.textContent).toContain("执行门槛");
+    expect(shiftLabels?.[0]?.textContent).toContain("更容易被完成");
+    expect(shiftLabels?.[1]?.textContent).toContain("更能拉开差距");
+    expect(thesisSlide?.querySelector(".thesis-shift__bridge")?.textContent).toContain("执行");
   });
 
-  it("renders the relationship slide as three role cards with a shared overlap", () => {
+  it("renders the relationship slide as a role-overlap map", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -81,7 +81,20 @@ describe("renderSlideDeck", () => {
     const roleCards = relationshipSlide?.querySelectorAll(".relationship-map__card");
 
     expect(roleCards).toHaveLength(3);
-    expect(relationshipSlide?.querySelector(".relationship-map__center")?.textContent).toContain("共同前置");
+    expect(relationshipSlide?.querySelector(".relationship-map__center")?.textContent).toContain("共同定义");
+  });
+
+  it("renders the stages slide as a four-part workflow view", () => {
+    const host = document.createElement("div");
+    host.innerHTML = renderSlideDeck();
+
+    const stageSlide = host.querySelector(".slide-page--stages");
+    const stages = stageSlide?.querySelectorAll(".stage-map__item");
+    const activeStage = stageSlide?.querySelector(".stage-map__item--active");
+
+    expect(stages).toHaveLength(4);
+    expect(stages?.[0]?.querySelector(".stage-map__title")?.textContent).toContain("前期研究");
+    expect(activeStage).toBeNull();
   });
 
   it("renders the ranking slide with all priorities visible at once", () => {
@@ -96,32 +109,17 @@ describe("renderSlideDeck", () => {
     expect(rows?.[0]?.querySelector(".ranking-list__title")?.textContent).toContain("AI 素养");
   });
 
-  it("renders the stages slide as four workflow stages", () => {
-    const host = document.createElement("div");
-    host.innerHTML = renderSlideDeck();
-
-    const stageSlide = host.querySelector(".slide-page--stages");
-    const stages = stageSlide?.querySelectorAll(".stage-map__item");
-    const activeStage = stageSlide?.querySelector(".stage-map__item--active");
-
-    expect(stages).toHaveLength(4);
-    expect(stages?.[2]?.querySelector(".stage-map__title")?.textContent).toContain("协作落地");
-    expect(activeStage).toBeNull();
-  });
-
   it("renders the hiring slide as a highlighted judgment list", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
     const questionSlide = host.querySelector(".slide-page--questions");
-    const accent = questionSlide?.querySelector(".slide-page__title-accent");
     const activeItem = questionSlide?.querySelector(".question-list__item--active");
 
-    expect(accent?.textContent).toBe("四个判断");
-    expect(activeItem?.querySelector(".question-list__title")?.textContent).toBe("你怎么把业务目标变成设计目标?");
+    expect(activeItem?.querySelector(".question-list__title")?.textContent).toBe("你怎么把业务目标推导成设计目标?");
   });
 
-  it("renders the compare slide as shortfalls versus potential", () => {
+  it("keeps student content as a supporting appendix rather than the main throughline", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -131,17 +129,17 @@ describe("renderSlideDeck", () => {
     expect(columns).toHaveLength(2);
     expect(columns?.[0]?.querySelector("h3")?.textContent).toContain("常见短板");
     expect(columns?.[1]?.querySelector("h3")?.textContent).toContain("潜在亮点");
+    expect(compareSlide?.querySelector(".slide-page__summary")?.textContent).toContain("补充");
   });
 
-  it("renders the action slide with one clear first step", () => {
+  it("renders a dedicated closing takeaway slide", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
-    const starterSlide = host.querySelector(".slide-page--steps");
-    const activeStep = starterSlide?.querySelector(".step-row__item--active");
-    const mutedSteps = starterSlide?.querySelectorAll(".step-row__item--muted");
+    const closingSlide = host.querySelector(".slide-page--closing");
 
-    expect(activeStep?.querySelector("h3")?.textContent).toBe("大量用AI");
-    expect(mutedSteps).toHaveLength(4);
+    expect(closingSlide?.querySelector(".closing-frame")).not.toBeNull();
+    expect(closingSlide?.querySelector(".closing-frame__title")?.textContent).toContain("执行的稀缺性");
+    expect(closingSlide?.querySelectorAll(".closing-frame__point")).toHaveLength(3);
   });
 });

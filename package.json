@@ -1,7 +1,7 @@
 {
   "name": "powerpoint-design",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A content-first PPT-style interview insight deck built with Vite.",
   "type": "module",
   "scripts": {
