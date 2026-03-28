@@ -15,8 +15,8 @@ export const PPTX_COLORS = {
 };
 
 export const PPTX_FONTS = {
-  body: "Aptos",
-  display: "Aptos Display",
+  body: "Helvetica Neue",
+  display: "Helvetica Neue",
 };
 
 export const PPTX_BOUNDS = {
@@ -27,16 +27,16 @@ export const PPTX_BOUNDS = {
 };
 
 export const PPTX_THEME = {
-  headFontFace: "Aptos",
-  bodyFontFace: "Aptos",
+  headFontFace: "Helvetica Neue",
+  bodyFontFace: "Helvetica Neue",
   lang: "zh-CN",
 };
 
 export const PPTX_META = {
   author: "Codex",
   company: "OpenAI",
-  subject: "Byte interview industry insight deck export",
-  title: "Byte Interview Industry Insight",
+  subject: "DJI industrial design interview research deck export",
+  title: "DJI Industrial Design Interview Research",
 };
 
-export const PPTX_EXPORT_FILENAME = "byte-interview-industry-insight-v1.0.3.pptx";
+export const PPTX_EXPORT_FILENAME = "dji-industrial-design-interview-v1.0.3.pptx";

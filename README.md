@@ -94,6 +94,12 @@ A content-first PPT project for turning long source material into clean, present
 - 密集信息块会主动缩短行长
 - 能去掉的边框和装饰尽量去掉，让内容本身承担更多版面重量
 
+### PPTX 导出规范
+
+- PPT 导出默认统一使用 `Helvetica Neue`
+- `display` 与 `body` 字体保持一致，避免 PowerPoint 打开后出现层级字体漂移
+- 如果后续要调整导出字体，应优先修改 `src/pptx/theme.js`，并同步更新这里的规范说明
+
 ### 项目结构
 
 ```text
@@ -144,7 +150,7 @@ npm run export:pptx
 默认导出文件：
 
 ```text
-exports/byte-interview-industry-insight-v1.0.3.pptx
+exports/dji-industrial-design-interview-v1.0.3.pptx
 ```
 
 ### Skill
@@ -262,6 +268,12 @@ This version pays special attention to:
 - shorter line lengths in dense information blocks
 - removing unnecessary borders and chrome so content carries more of the page
 
+### PPTX Export Rules
+
+- PPT export uses `Helvetica Neue` by default
+- `display` and `body` stay on the same font family to reduce font drift after opening in PowerPoint
+- If the export font changes later, update `src/pptx/theme.js` first and keep this rule in sync
+
 ### Project Structure
 
 ```text
@@ -312,7 +324,7 @@ npm run export:pptx
 Default export file:
 
 ```text
-exports/byte-interview-industry-insight-v1.0.3.pptx
+exports/dji-industrial-design-interview-v1.0.3.pptx
 ```
 
 ### Skill

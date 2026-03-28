@@ -2,11 +2,12 @@ import { access, rm } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildPresentation, createPresentation, exportDeckToPptx, getPptxExportFilename } from "../src/pptx/export.js";
+import { PPTX_FONTS, PPTX_THEME } from "../src/pptx/theme.js";
 
 describe("pptx export helpers", () => {
   it("builds a stable pptx filename for the current deck", () => {
     expect(getPptxExportFilename()).toMatch(
-      /^byte-interview-industry-insight-v\d+\.\d+\.\d+\.pptx$/,
+      /^dji-industrial-design-interview-v\d+\.\d+\.\d+\.pptx$/,
     );
   });
 
@@ -15,13 +16,20 @@ describe("pptx export helpers", () => {
 
     expect(pptx.layout).toBe("LAYOUT_WIDE");
     expect(pptx.author).toContain("Codex");
-    expect(pptx.subject).toContain("industry insight");
+    expect(pptx.subject).toContain("DJI industrial design interview");
   });
 
   it("creates one ppt slide per deck slide", () => {
     const pptx = buildPresentation();
 
-    expect(pptx._slides).toHaveLength(9);
+    expect(pptx._slides).toHaveLength(6);
+  });
+
+  it("uses Helvetica Neue as the default editable pptx font family", () => {
+    expect(PPTX_FONTS.body).toBe("Helvetica Neue");
+    expect(PPTX_FONTS.display).toBe("Helvetica Neue");
+    expect(PPTX_THEME.headFontFace).toBe("Helvetica Neue");
+    expect(PPTX_THEME.bodyFontFace).toBe("Helvetica Neue");
   });
 
   it("writes the pptx to disk and returns the output path", async () => {

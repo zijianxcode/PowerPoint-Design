@@ -4,12 +4,12 @@ import { deckSlides } from "../src/deck/content.js";
 import { renderSlideDeck } from "../src/deck/render.js";
 
 describe("renderSlideDeck", () => {
-  it("renders a nine-slide deck with consistent slide containers", () => {
+  it("renders a six-slide deck with consistent slide containers", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
     expect(host.querySelector(".deck")).not.toBeNull();
-    expect(host.querySelectorAll(".slide-page")).toHaveLength(9);
+    expect(host.querySelectorAll(".slide-page")).toHaveLength(6);
     expect(host.querySelector(".deck__track")).not.toBeNull();
   });
 
@@ -22,34 +22,28 @@ describe("renderSlideDeck", () => {
     );
 
     expect(titles).toEqual([
-      "AI 时代，设计师的价值正在前移",
-      "最先改变的，是方案生产的成本",
-      "更稀缺的，变成判断与验证",
-      "设计开始进入更前端的决策环节",
-      "AI 优先改写的是探索环节",
-      "能力排序也在随之变化",
-      "企业最终仍通过判断力识别设计师",
-      "学生问题，更像供给侧的滞后",
-      "这一轮变化，核心在价值位置的变化",
+      "工业设计人才评价，正在从风格偏好转向综合判断",
+      "这份材料更适合作为企业样本，而不是行业普查",
+      "通过率偏低，暴露的是训练输出与企业场景的错位",
+      "企业真正筛选的，是一组组合能力",
+      "学生最容易停住的，不是创意，而是往下推进",
+      "教学讨论的关键，不是多做概念，而是多推一步",
     ]);
   });
 
-  it("exposes the page types needed for the industry insight deck", () => {
-    expect(deckSlides).toHaveLength(9);
+  it("exposes the page types needed for the DJI research deck", () => {
+    expect(deckSlides).toHaveLength(6);
     expect(deckSlides.map((slide) => slide.type)).toEqual([
       "cover",
       "context",
       "thesis",
-      "relationship",
-      "stages",
       "ranking",
       "questions",
-      "compare",
       "closing",
     ]);
   });
 
-  it("renders the context slide as the explanation for why the shift is happening now", () => {
+  it("renders the context slide as a source-boundary explanation", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -58,10 +52,10 @@ describe("renderSlideDeck", () => {
 
     expect(contextSlide?.querySelector(".context-grid__facts")).not.toBeNull();
     expect(facts).toHaveLength(3);
-    expect(contextSlide?.querySelector(".context-grid__statement")?.textContent).toContain("执行层");
+    expect(contextSlide?.querySelector(".context-grid__statement")?.textContent).toContain("一线面试样本");
   });
 
-  it("renders the thesis slide as a transition from execution to judgment", () => {
+  it("renders the thesis slide as a mismatch between training output and enterprise context", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -69,38 +63,12 @@ describe("renderSlideDeck", () => {
     const shiftLabels = thesisSlide?.querySelectorAll(".thesis-shift__label");
 
     expect(shiftLabels).toHaveLength(2);
-    expect(shiftLabels?.[0]?.textContent).toContain("更容易被完成");
-    expect(shiftLabels?.[1]?.textContent).toContain("更能拉开差距");
-    expect(thesisSlide?.querySelector(".thesis-shift__bridge")?.textContent).toContain("执行");
+    expect(shiftLabels?.[0]?.textContent).toContain("学生常见输出");
+    expect(shiftLabels?.[1]?.textContent).toContain("企业实际判断");
+    expect(thesisSlide?.querySelector(".thesis-shift__bridge")?.textContent).toContain("错位");
   });
 
-  it("renders the relationship slide as a role-overlap map", () => {
-    const host = document.createElement("div");
-    host.innerHTML = renderSlideDeck();
-
-    const relationshipSlide = host.querySelector(".slide-page--relationship");
-    const roleCards = relationshipSlide?.querySelectorAll(".relationship-map__card");
-
-    expect(roleCards).toHaveLength(3);
-    expect(relationshipSlide?.querySelector(".relationship-map__center")?.textContent).toContain("共同定义");
-  });
-
-  it("renders the stages slide as a four-part workflow view", () => {
-    const host = document.createElement("div");
-    host.innerHTML = renderSlideDeck();
-
-    const stageSlide = host.querySelector(".slide-page--stages");
-    const stages = stageSlide?.querySelectorAll(".stage-map__item");
-    const earlyStages = stageSlide?.querySelectorAll(".stage-map__item--early");
-    const laterStages = stageSlide?.querySelectorAll(".stage-map__item--later");
-
-    expect(stages).toHaveLength(4);
-    expect(stages?.[0]?.querySelector(".stage-map__title")?.textContent).toContain("前期研究");
-    expect(earlyStages).toHaveLength(2);
-    expect(laterStages).toHaveLength(2);
-  });
-
-  it("renders the ranking slide with all priorities visible at once", () => {
+  it("renders the ranking slide as a combined evaluation framework", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
@@ -111,32 +79,20 @@ describe("renderSlideDeck", () => {
 
     expect(rows).toHaveLength(5);
     expect(rows?.[0]?.querySelector(".ranking-list__rank")?.textContent).toBe("01");
-    expect(rows?.[0]?.querySelector(".ranking-list__title")?.textContent).toContain("AI 素养");
+    expect(rows?.[0]?.querySelector(".ranking-list__title")?.textContent).toContain("造型能力");
     expect(featured).toHaveLength(2);
     expect(supporting).toHaveLength(3);
   });
 
-  it("renders the hiring slide as a highlighted judgment list", () => {
+  it("renders the questions slide as an evidence-based review path", () => {
     const host = document.createElement("div");
     host.innerHTML = renderSlideDeck();
 
     const questionSlide = host.querySelector(".slide-page--questions");
     const activeItem = questionSlide?.querySelector(".question-list__item--active");
 
-    expect(activeItem?.querySelector(".question-list__title")?.textContent).toBe("你怎么把业务目标推导成设计目标?");
-  });
-
-  it("keeps student content as a supporting appendix rather than the main throughline", () => {
-    const host = document.createElement("div");
-    host.innerHTML = renderSlideDeck();
-
-    const compareSlide = host.querySelector(".slide-page--compare");
-    const columns = compareSlide?.querySelectorAll(".compare-grid__column");
-
-    expect(columns).toHaveLength(2);
-    expect(columns?.[0]?.querySelector("h3")?.textContent).toContain("常见短板");
-    expect(columns?.[1]?.querySelector("h3")?.textContent).toContain("潜在亮点");
-    expect(compareSlide?.querySelector(".slide-page__summary")?.textContent).toContain("补充");
+    expect(questionSlide?.querySelectorAll(".question-list__item")).toHaveLength(4);
+    expect(activeItem?.querySelector(".question-list__title")?.textContent).toBe("这个方向为什么成立?");
   });
 
   it("renders a dedicated closing takeaway slide", () => {
@@ -146,7 +102,7 @@ describe("renderSlideDeck", () => {
     const closingSlide = host.querySelector(".slide-page--closing");
 
     expect(closingSlide?.querySelector(".closing-frame")).not.toBeNull();
-    expect(closingSlide?.querySelector(".closing-frame__title")?.textContent).toContain("执行的稀缺性");
+    expect(closingSlide?.querySelector(".closing-frame__title")?.textContent).toContain("真实产品逻辑");
     expect(closingSlide?.querySelectorAll(".closing-frame__point")).toHaveLength(3);
   });
 });
