@@ -39,14 +39,14 @@ function renderContext(slide) {
   return `
     ${renderHeader(slide)}
     <div class="context-grid">
-      <div class="context-grid__stats">
+      <div class="context-grid__facts">
         ${slide.stats
           .map(
             ([label, value]) => `
-              <article class="context-grid__stat">
+              <div class="context-grid__fact">
                 <span class="context-grid__label">${label}</span>
                 <strong class="context-grid__value">${value}</strong>
-              </article>
+              </div>
             `,
           )
           .join("")}
@@ -116,7 +116,7 @@ function renderRanking(slide) {
       ${slide.items
         .map(
           ([title, text], index) => `
-            <article class="ranking-list__item${index === 0 ? " ranking-list__item--active" : ""}">
+            <article class="ranking-list__item${index < 2 ? " ranking-list__item--featured" : " ranking-list__item--supporting"}${index === 0 ? " ranking-list__item--active" : ""}">
               <span class="ranking-list__rank">0${index + 1}</span>
               <div class="ranking-list__body">
                 <h3 class="ranking-list__title">${title}</h3>
@@ -138,7 +138,7 @@ function renderStages(slide) {
       ${slide.stages
         .map(
           ([title, text], index) => `
-            <article class="stage-map__item">
+            <article class="stage-map__item${index < 2 ? " stage-map__item--early" : " stage-map__item--later"}">
               <span class="stage-map__index">0${index + 1}</span>
               <h3 class="stage-map__title">${title}</h3>
               <p>${text}</p>

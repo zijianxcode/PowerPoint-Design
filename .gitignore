@@ -1,5 +1,7 @@
 node_modules/
 dist/
+exports/
+exports-test/
 
 *.log
 .DS_Store

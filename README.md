@@ -16,7 +16,15 @@ A content-first PPT-style project for turning long interviews into clean, presen
 - 让每一页的版式服务它实际表达的内容关系
 - 在统一视觉语言下，保留清楚的层级、节奏和阅读路径
 
-当前 `v1.0.1` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿。
+当前 `v1.0.2` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿，并支持导出可编辑 `.pptx`。
+
+### 版本 1.0.2
+
+本次更新包含：
+- 将 deck 进一步收成更平面、更编辑式的汇报稿
+- 新增可编辑 `.pptx` 导出能力
+- 将这套工作流沉淀成项目内可复用 skill
+- 补充 [CHANGELOG.md](./CHANGELOG.md) 记录版本变更
 
 ### 版本 1.0.1
 
@@ -136,7 +144,15 @@ It is a content-first deck system designed to:
 - match each page layout to the actual information relationship it needs to express
 - keep a consistent visual language without flattening every page into the same structure
 
-The current `v1.0.1` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview.
+The current `v1.0.2` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview, plus editable `.pptx` export.
+
+### Version 1.0.2
+
+This update includes:
+- a flatter, more editorial presentation pass with less web-card energy
+- native editable `.pptx` export
+- a reusable in-project skill for the full source-to-deck workflow
+- a documented release history in [CHANGELOG.md](./CHANGELOG.md)
 
 ### Version 1.0.1
 

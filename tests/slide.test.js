@@ -54,9 +54,10 @@ describe("renderSlideDeck", () => {
     host.innerHTML = renderSlideDeck();
 
     const contextSlide = host.querySelector(".slide-page--context");
-    const stats = contextSlide?.querySelectorAll(".context-grid__stat");
+    const facts = contextSlide?.querySelectorAll(".context-grid__fact");
 
-    expect(stats).toHaveLength(3);
+    expect(contextSlide?.querySelector(".context-grid__facts")).not.toBeNull();
+    expect(facts).toHaveLength(3);
     expect(contextSlide?.querySelector(".context-grid__statement")?.textContent).toContain("执行层");
   });
 
@@ -90,11 +91,13 @@ describe("renderSlideDeck", () => {
 
     const stageSlide = host.querySelector(".slide-page--stages");
     const stages = stageSlide?.querySelectorAll(".stage-map__item");
-    const activeStage = stageSlide?.querySelector(".stage-map__item--active");
+    const earlyStages = stageSlide?.querySelectorAll(".stage-map__item--early");
+    const laterStages = stageSlide?.querySelectorAll(".stage-map__item--later");
 
     expect(stages).toHaveLength(4);
     expect(stages?.[0]?.querySelector(".stage-map__title")?.textContent).toContain("前期研究");
-    expect(activeStage).toBeNull();
+    expect(earlyStages).toHaveLength(2);
+    expect(laterStages).toHaveLength(2);
   });
 
   it("renders the ranking slide with all priorities visible at once", () => {
@@ -103,10 +106,14 @@ describe("renderSlideDeck", () => {
 
     const rankingSlide = host.querySelector(".slide-page--ranking");
     const rows = rankingSlide?.querySelectorAll(".ranking-list__item");
+    const featured = rankingSlide?.querySelectorAll(".ranking-list__item--featured");
+    const supporting = rankingSlide?.querySelectorAll(".ranking-list__item--supporting");
 
     expect(rows).toHaveLength(5);
     expect(rows?.[0]?.querySelector(".ranking-list__rank")?.textContent).toBe("01");
     expect(rows?.[0]?.querySelector(".ranking-list__title")?.textContent).toContain("AI 素养");
+    expect(featured).toHaveLength(2);
+    expect(supporting).toHaveLength(3);
   });
 
   it("renders the hiring slide as a highlighted judgment list", () => {
