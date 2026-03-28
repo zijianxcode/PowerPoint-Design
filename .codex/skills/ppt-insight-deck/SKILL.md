@@ -68,6 +68,13 @@ Do not force a fixed slide count. Merge or split only when clarity improves.
 - Use accent color only for anchors, emphasis, or ranking
 - Make appendix pages quieter than the main narrative
 
+## Project Memory
+
+- For editable PowerPoint export, use `Helvetica Neue` as the default font family for both display and body text.
+- Keep the web preview typography aligned with the PPT export typography unless a task explicitly asks for divergence.
+- When an interview is turned into a teacher-facing research deck, frame it as an enterprise-side sample rather than an industry-wide conclusion.
+- In education-oriented industrial design decks, prioritize the throughline from concept quality to product logic instead of drifting into generic recruiting advice.
+
 ## In This Project
 
 Primary files:
@@ -89,7 +96,7 @@ npm run export:pptx
 Default PPTX output:
 
 ```text
-exports/byte-interview-industry-insight-v1.0.2.pptx
+exports/dji-industrial-design-interview-v1.0.3.pptx
 ```
 
 ## Deliverables
