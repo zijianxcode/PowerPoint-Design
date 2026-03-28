@@ -2,8 +2,8 @@
 
 [中文](#中文) | [English](#english)
 
-一个内容驱动的 PPT 风格项目，用来把长访谈整理成结构清楚、适合演示的洞察 deck。  
-A content-first PPT-style project for turning long interviews into clean, presentation-ready insight decks.
+一个内容驱动的 PPT 制作项目，用来把长材料整理成结构清楚、适合演示的洞察 deck，并导出可编辑 `.pptx`。  
+A content-first PPT project for turning long source material into clean, presentation-ready insight decks with editable `.pptx` export.
 
 ## 中文
 
@@ -15,6 +15,8 @@ A content-first PPT-style project for turning long interviews into clean, presen
 - 把长访谈压缩成可讲、可读、可展示的页面
 - 让每一页的版式服务它实际表达的内容关系
 - 在统一视觉语言下，保留清楚的层级、节奏和阅读路径
+- 支持导出可编辑 `.pptx`
+- 把这套流程沉淀成可复用 skill
 
 当前 `v1.0.2` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿，并支持导出可编辑 `.pptx`。
 
@@ -88,15 +90,26 @@ A content-first PPT-style project for turning long interviews into clean, presen
 ### 项目结构
 
 ```text
+.codex/
+  skills/
+    ppt-insight-deck/
+      SKILL.md      项目内可复用 skill
+scripts/
+  export-pptx.mjs   导出 pptx 的 CLI 脚本
 src/
   deck/
     content.js   页面内容与页型数据
     render.js    各类页面的渲染逻辑
+  pptx/
+    theme.js     PowerPoint 导出主题与常量
+    slides.js    各类页面到 PPTX 的映射
+    export.js    PPTX 构建与写出入口
   styles/
     theme.css    共享视觉系统与版式规则
   main.js        应用入口
 tests/
   slide.test.js  deck 结构与关键内容渲染测试
+  pptx.test.js   PPTX 导出测试
 ```
 
 ### 如何运行
@@ -118,7 +131,27 @@ npm run dev
 ```bash
 npm test
 npm run build
+npm run export:pptx
 ```
+
+默认导出文件：
+
+```text
+exports/byte-interview-industry-insight-v1.0.2.pptx
+```
+
+### Skill
+
+项目内已经包含一个可复用 skill：
+
+[`ppt-insight-deck/SKILL.md`](./.codex/skills/ppt-insight-deck/SKILL.md)
+
+它总结的是这条完整工作流：
+- 读取源文件
+- 提炼主线和洞察
+- 按内容关系重建 deck
+- 收成更平面化的汇报稿
+- 导出可编辑 `.pptx`
 
 ### 为什么这个版本有意义
 
@@ -143,6 +176,8 @@ It is a content-first deck system designed to:
 - compress long interviews into pages that are readable, teachable, and presentable
 - match each page layout to the actual information relationship it needs to express
 - keep a consistent visual language without flattening every page into the same structure
+- export editable `.pptx` files
+- preserve the workflow as a reusable project skill
 
 The current `v1.0.2` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview, plus editable `.pptx` export.
 
@@ -216,15 +251,26 @@ This version pays special attention to:
 ### Project Structure
 
 ```text
+.codex/
+  skills/
+    ppt-insight-deck/
+      SKILL.md      reusable in-project skill
+scripts/
+  export-pptx.mjs   pptx export CLI
 src/
   deck/
     content.js   slide content and page-type data
     render.js    rendering logic for each slide archetype
+  pptx/
+    theme.js     PowerPoint export theme and constants
+    slides.js    slide-type to PPTX mapping
+    export.js    PPTX creation and file output
   styles/
     theme.css    shared visual system and layout rules
   main.js        app entry
 tests/
   slide.test.js  structural and rendering tests for the deck
+  pptx.test.js   PPTX export tests
 ```
 
 ### How To Run
@@ -246,7 +292,27 @@ Run validation:
 ```bash
 npm test
 npm run build
+npm run export:pptx
 ```
+
+Default export file:
+
+```text
+exports/byte-interview-industry-insight-v1.0.2.pptx
+```
+
+### Skill
+
+The project now includes a reusable skill:
+
+[`ppt-insight-deck/SKILL.md`](./.codex/skills/ppt-insight-deck/SKILL.md)
+
+It captures the full workflow:
+- read the source material
+- extract the throughline and insights
+- rebuild the deck around information relationships
+- refine it into a flatter presentation artifact
+- export an editable `.pptx`
 
 ### Why This Version Matters
 
