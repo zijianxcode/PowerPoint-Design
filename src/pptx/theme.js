@@ -39,4 +39,4 @@ export const PPTX_META = {
   title: "Byte Interview Industry Insight",
 };
 
-export const PPTX_EXPORT_FILENAME = "byte-interview-industry-insight-v1.0.2.pptx";
+export const PPTX_EXPORT_FILENAME = "byte-interview-industry-insight-v1.0.3.pptx";
