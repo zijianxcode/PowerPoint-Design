@@ -18,7 +18,14 @@ A content-first PPT project for turning long source material into clean, present
 - 支持导出可编辑 `.pptx`
 - 把这套流程沉淀成可复用 skill
 
-当前 `v1.0.2` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿，并支持导出可编辑 `.pptx`。
+当前 `v1.0.3` 包含一套基于设计行业访谈整理出的 `9` 页行业洞察演示稿，并支持导出可编辑 `.pptx`。
+
+### 版本 1.0.3
+
+本次更新包含：
+- 审查并修复了 11 处设计的留白、字号和视觉比例，使其更符合排版体系
+- 把设计系统规范提炼成了项目的自主记忆（KI）
+- 修复了防 XSS 注入和测试套件中的历史报错信息
 
 ### 版本 1.0.2
 
@@ -137,7 +144,7 @@ npm run export:pptx
 默认导出文件：
 
 ```text
-exports/byte-interview-industry-insight-v1.0.2.pptx
+exports/byte-interview-industry-insight-v1.0.3.pptx
 ```
 
 ### Skill
@@ -179,7 +186,14 @@ It is a content-first deck system designed to:
 - export editable `.pptx` files
 - preserve the workflow as a reusable project skill
 
-The current `v1.0.2` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview, plus editable `.pptx` export.
+The current `v1.0.3` package includes a `9`-slide industry-insight presentation distilled from a design-industry interview, plus editable `.pptx` export.
+
+### Version 1.0.3
+
+This update includes:
+- a comprehensive UI spacing and typographic review with 11 structural fixes
+- formalized layout principles pushed into project knowledge items
+- secure XSS escaping and test suite updates
 
 ### Version 1.0.2
 
@@ -298,7 +312,7 @@ npm run export:pptx
 Default export file:
 
 ```text
-exports/byte-interview-industry-insight-v1.0.2.pptx
+exports/byte-interview-industry-insight-v1.0.3.pptx
 ```
 
 ### Skill

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## v1.0.3 - 2026-03-28
+
+### Fixed
+
+- Fixed XSS vulnerabilities by escaping user template variables.
+- Fixed template literal syntax errors in slide rendering.
+- Fixed the hardcoded `.pptx` export filename versioning.
+- Fixed test suite failures caused by version mismatch.
+
+### Updated
+
+- Conducted a comprehensive design review and adjusted `theme.css`.
+- Refined typography scale, layout density, and visual hierarchy across all slide archetypes.
+- Formalized project design rules and layout principles into the project's autonomous knowledge base (`KI`).
+
 ## v1.0.2 - 2026-03-28
 
 ### Updated
