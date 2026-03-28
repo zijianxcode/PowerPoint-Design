@@ -106,7 +106,7 @@ p {
   flex: none;
   display: block;
   color: var(--accent);
-  font-size: 52px;
+  font-size: 46px;
   font-weight: 700;
   line-height: 0.92;
   letter-spacing: -0.04em;
@@ -143,12 +143,12 @@ p {
 .slide-page__hero {
   display: grid;
   gap: 16px;
-  padding-top: 88px;
+  padding-top: 104px;
   max-width: 920px;
 }
 
 .slide-page__subtitle {
-  max-width: 700px;
+  max-width: 620px;
   font-size: 25px;
   line-height: 1.62;
   letter-spacing: -0.01em;
@@ -203,17 +203,17 @@ p {
 }
 
 .question-visual__frame {
-  width: 392px;
-  height: 392px;
+  width: 320px;
+  height: 320px;
   display: grid;
   place-items: center;
-  border-radius: 34px;
+  border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
     #f1eee7;
   color: #171717;
-  font-size: 62px;
+  font-size: 56px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -232,7 +232,7 @@ p {
   padding: 26px 28px;
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.014);
-  opacity: 0.16;
+  opacity: 0.22;
 }
 
 .question-list__item--active {
@@ -351,7 +351,7 @@ p {
 }
 
 .slide-page__summary--center {
-  text-align: left;
+  text-align: center;
   font-size: 24px;
   color: var(--text-main);
 }
@@ -518,7 +518,7 @@ p {
 .relationship-map {
   position: relative;
   display: grid;
-  grid-template-columns: 1.18fr 0.92fr 0.92fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 18px;
   padding-top: 18px;
 }
@@ -595,10 +595,13 @@ p {
 .ranking-list__item--featured {
   min-height: 132px;
   padding: 26px 0 24px;
+  border-left: 2px solid rgba(242, 160, 77, 0.42);
+  padding-left: 16px;
+  margin-left: -16px;
 }
 
 .ranking-list__item--supporting {
-  opacity: 0.78;
+  opacity: 0.62;
 }
 
 .ranking-list__rank {
@@ -660,9 +663,9 @@ p {
 }
 
 .stage-map__item--later {
-  min-height: 248px;
-  margin-top: 88px;
-  opacity: 0.8;
+  min-height: 200px;
+  margin-top: 48px;
+  opacity: 0.7;
 }
 
 .compare-grid {
@@ -673,7 +676,7 @@ p {
 }
 
 .compare-grid__column {
-  min-height: 458px;
+  min-height: 320px;
   padding: 30px 30px;
   display: grid;
   align-content: start;
@@ -719,7 +722,7 @@ p {
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.065);
   color: var(--text-muted);
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.62;
   letter-spacing: -0.01em;
 }

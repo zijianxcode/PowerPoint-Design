@@ -1,5 +1,5 @@
 import { deckSlides } from "../deck/content.js";
-import { PPTX_BOUNDS, PPTX_COLORS, PPTX_FONTS } from "./theme.js";
+import { PPTX_COLORS, PPTX_FONTS } from "./theme.js";
 
 function addSection(slide, section) {
   slide.addText(section, {
@@ -51,7 +51,7 @@ function addTitle(slide, data, y = 0.5, h = 0.7, size = 28) {
 }
 
 function addSummary(slide, text, centered = false) {
-  slide.addShape(slide._slideLayout?.ShapeType?.line || "line", {
+  slide.addShape("line", {
     x: 0.8,
     y: 6.62,
     w: 6.5,
@@ -321,7 +321,7 @@ function renderStages(slide, data) {
       h: 0,
       line: { color: pos.early ? "6E4A26" : PPTX_COLORS.lineSoft, width: 1 },
     });
-    slide.addText(`0${index + 1}`, {
+    slide.addText(String(index + 1).padStart(2, "0"), {
       x: pos.x,
       y: pos.y + 0.08,
       w: 0.4,
@@ -373,7 +373,7 @@ function renderRanking(slide, data) {
       h: 0,
       line: { color: index === 0 ? PPTX_COLORS.accent : PPTX_COLORS.lineSoft, width: 1 },
     });
-    slide.addText(`0${index + 1}`, {
+    slide.addText(String(index + 1).padStart(2, "0"), {
       x: 0.88, y: y + 0.08, w: 0.5, h: 0.24, margin: 0, fontSize: 24, bold: true, color: PPTX_COLORS.accent,
     });
     slide.addText(title, {
@@ -394,7 +394,7 @@ function renderRanking(slide, data) {
       h: 0,
       line: { color: PPTX_COLORS.lineSoft, width: 1 },
     });
-    slide.addText(`0${index + 1}`, {
+    slide.addText(String(index + 1).padStart(2, "0"), {
       x: 6.5, y: y + 0.06, w: 0.4, h: 0.2, margin: 0, fontSize: 16, bold: true, color: PPTX_COLORS.accent,
     });
     slide.addText(title, {
@@ -437,7 +437,7 @@ function renderQuestions(slide, data) {
       lineWidth: active ? 1.5 : 1,
       fillColor: active ? "17130E" : PPTX_COLORS.panel,
     });
-    slide.addText(`0${index + 1}`, {
+    slide.addText(String(index + 1).padStart(2, "0"), {
       x: 5.26, y: y + 0.16, w: 0.42, h: 0.2, margin: 0, fontSize: active ? 18 : 13, bold: true, color: PPTX_COLORS.accent,
     });
     slide.addText(title, {

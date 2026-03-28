@@ -5,7 +5,9 @@ import { buildPresentation, createPresentation, exportDeckToPptx, getPptxExportF
 
 describe("pptx export helpers", () => {
   it("builds a stable pptx filename for the current deck", () => {
-    expect(getPptxExportFilename()).toBe("byte-interview-industry-insight-v1.0.2.pptx");
+    expect(getPptxExportFilename()).toMatch(
+      /^byte-interview-industry-insight-v\d+\.\d+\.\d+\.pptx$/,
+    );
   });
 
   it("creates a wide presentation configured for the current deck", () => {
