@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from "vitest";
-import { deckSlides } from "../src/slides.js";
-import { renderSlideDeck } from "../src/slide.js";
+import { deckSlides } from "../src/deck/content.js";
+import { renderSlideDeck } from "../src/deck/render.js";
 
 describe("renderSlideDeck", () => {
   it("renders a nine-slide deck with consistent slide containers", () => {

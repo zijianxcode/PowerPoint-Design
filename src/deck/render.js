@@ -1,4 +1,4 @@
-import { deckSlides } from "./slides.js";
+import { deckSlides } from "./content.js";
 
 function renderCompositeTitle(slide) {
   if (slide.titleLead || slide.titleAccent || slide.titleTail) {

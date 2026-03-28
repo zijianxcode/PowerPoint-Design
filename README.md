@@ -65,13 +65,14 @@ Typesetting choices in this version:
 
 ```text
 src/
-  slides.js      slide content and page-type data
-  slide.js       rendering logic for each slide archetype
-  styles.css     shared visual system and page layouts
+  deck/
+    content.js   slide content and page-type data
+    render.js    rendering logic for each slide archetype
+  styles/
+    theme.css    shared visual system and page layouts
+  main.js        app bootstrap
 tests/
   slide.test.js  structural tests for deck content and rendering
-public/
-  x-video-thumb.jpg
 ```
 
 ## How To Run
